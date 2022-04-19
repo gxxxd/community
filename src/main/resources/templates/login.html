@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>登录</title>
+    <head th:insert="~{import :: head}"></head>
+    <head th:insert="~{import :: markdown}"></head>
+</head>
+<body>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <h3>登录失败</h3>
+            <hr>
+
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="username">用户名:</label>
+                    <input type="text" class="form-control" th:value="${loginusername}" id="username" name="username"
+                           placeholder="用户名……"
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="password">密码:</label>
+                    <input type="password" class="form-control" th:value="${loginpassword}" id="password" name="password"
+                           placeholder="密码……"
+                           autocomplete="off">
+                </div>
+
+                <div class="container-fluid main ">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                                 th:text="${loginerror}"
+                                 th:if="${loginerror != null}">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-success btn-publish ">
+                                登录
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+
+        </div>
+    </div>
+</div>
+<div th:insert="~{footer :: foot}"></div>
+</body>
+</html>

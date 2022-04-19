@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>验证邮箱</title>
+    <head th:insert="~{import :: head}"></head>
+    <head th:insert="~{import :: markdown}"></head>
+</head>
+<body>
+
+<div th:insert="~{navigation :: nav}"></div>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <h3>邮件已发送</h3>
+            <hr>
+
+            <form action="/emailcode" method="post">
+                <div class="form-group">
+                    <label for="username">邮箱地址:</label>
+                    <input type="text" class="form-control" readonly="readonly" th:value="${email}" id="username" name="username"
+                           placeholder="用户名……"
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="password">验证码:</label>
+                    <input type="text" class="form-control" id="password" name="password"
+                           placeholder="密码……"
+                           autocomplete="off">
+                </div>
+
+                <div class="container-fluid main ">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                                 th:text="${emailerror}"
+                                 th:if="${emailerror != null}">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-success btn-publish ">
+                                验证
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+
+        </div>
+    </div>
+</div>
+<div th:insert="~{footer :: foot}"></div>
+
+</body>
+</html>
